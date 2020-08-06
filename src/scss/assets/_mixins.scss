@@ -1,0 +1,14 @@
+
+@function responsive($screenWidth, $pxs) {
+  $arrow: str-index($screenWidth, '->');
+
+  $minScreenWidth: str-slice($screenWidth, 0, $arrow - 1);
+  $maxScreenWidth: str-slice($screenWidth, $arrow + 2, -1);
+
+  $arrow: str-index($pxs, '->');
+
+  $minPxs: str-slice($pxs, 0, $arrow - 1);
+  $maxPxs: str-slice($pxs, $arrow + 2, -1);
+
+  @return  calc((100vw - #{$minScreenWidth}px)/(#{$maxScreenWidth} - #{$minScreenWidth})*(#{$maxPxs} - #{$minPxs}) + #{$minPxs}px);
+}

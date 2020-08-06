@@ -1,0 +1,100 @@
+// assets import
+@import '../../assets/colors';
+@import '../../assets/mixins';
+@import '../../assets/variables';
+label.invalid {
+  font: normal 10px/150% sans-serif;
+  color: #f00;
+}
+
+input.invalid {
+  border-bottom-color: #f00;
+}
+
+.check {
+  max-width: 300px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  cursor: pointer;
+  > label.invalid {
+    margin-left: 30px;
+    max-width: 200px;
+    order: 10;
+  }
+  &__pseudo-inp {
+    margin-right: 10px;
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    color: #f00;
+    border-radius: 2px;
+    border: 1px solid;
+    font-size: 0;
+    position: relative;
+    &::after {
+      content: '';
+      margin: auto;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('../img/check.svg') center/cover no-repeat;
+      opacity: 0;
+      transition: opacity .4s;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+  }
+  &__text {
+    display: inline-block;
+    width: calc(100% - 30px);
+    font-size: 12px;
+    line-height: 150%;
+    color: #4d4d4d;
+  }
+  &__inp {
+    position: absolute;
+    opacity: 0;
+    &:checked ~ .check__pseudo-inp {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+  &__link {
+    transition: border-bottom-color .35s, color .35s;
+    border-bottom: 1px solid;
+  }
+}
+
+.field {
+  &__inp {
+    width: 100%;
+    border: none;
+    background: none;
+    padding-bottom: 8px;
+    font: inherit;
+    color: #4d4d4d;
+    border-bottom: 1px solid #d4d4d4;
+    transition: border-bottom-color .35s;
+    &::placeholder {
+      font: inherit;
+      color: #878787;
+      transition: color .35s;
+    }
+    &:focus,
+    &.filled,
+    &:focus.valid,
+    &.filled.valid {
+      border-bottom-color: #291956;
+      &::placeholder {
+        color: rgba(0,0,0,0);
+      }
+    }
+  }
+}
