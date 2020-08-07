@@ -2,3 +2,19 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.about-sect {
+  grid-template-columns: auto 72px auto;
+  &__title {
+    margin: 20px 0 55px;
+  }
+  &__text {
+  }
+  &__descr {
+  }
+  &__img {
+    margin-top: 0;
+    width: 438px;
+    height: 318px;
+  }
+}

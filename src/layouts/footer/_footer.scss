@@ -2,3 +2,66 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.ftr {
+  padding-top: 55px;
+  padding-bottom: 30px;
+  background: $lavender;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  text-align: center;
+  color: $facebook;
+  font: 12px/100% NotoSans;
+  &__top {
+  }
+  &__logo {
+    display: block;
+    margin-bottom: 20px;
+  }
+  &__copy {
+  }
+  &__nav {
+    margin: 40px 0 50px;
+    font-size: 16px;
+  }
+  &__nav-list {
+  }
+  &__nav-list-item {
+    &:nth-last-child(n+2) {
+      margin-bottom: 23px;
+    }
+  }
+  &__nav-link {
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .35s, transform .25s;
+      border-bottom: 1px solid $facebook;
+      pointer-events: none;
+    }
+  }
+  &__bottom {
+  }
+  &__dev {
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  &__dev-link {
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color .35s;
+    font-weight: 500;
+    font-family: SegoeUI;
+  }
+  &__policy {
+    border-bottom: 1px solid;
+    transition: border-bottom-color .35s;
+  }
+}

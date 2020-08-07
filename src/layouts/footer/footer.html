@@ -1,7 +1,54 @@
+  <footer class="ftr container">
+    <div class="ftr__top">
+      <img data-src="img/logo-blue.svg" src="#" alt="Логотип Комфортные технологии" class="ftr__logo lazy">
+      <span class="ftr__copy">2020 &copy; Комфортные технологии</span>
+    </div>
+    <nav class="ftr__nav">
+      <ul class="ftr__nav-list">
+        <li class="ftr__nav-list-item">
+          <a href="#services" title="Перейти в раздел услуги" class="ftr__nav-link">Услуги</a>
+        </li>
+        <li class="ftr__nav-list-item">
+          <a href="#about" title="Перейти в раздел о нас" class="ftr__nav-link">О нас</a>
+        </li>
+        <li class="ftr__nav-list-item">
+          <a href="#faq" title="Перейти в раздел вопрос-ответ" class="ftr__nav-link">Вопрос-ответ</a>
+        </li>
+        <li class="ftr__nav-list-item">
+          <a href="#shq" title="Перейти в раздел напишите нам" class="ftr__nav-link">Напишите нам</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="ftr__bottom">
+      <div class="ftr__dev"><span>Дизайн и разработка — </span><a href="https://media-bay.ru/" rel="noopener noreferrer nofollow" target="_blank" title="Перейти на сайт разработчика" class="ftr__dev-link link_u">media bay</a></div>
+      <a href="/policy.pdf" rel="noopener noreferrer nofollow" target="_blank" title="Посмотреть политику конфиденциальности" class="ftr__policy link_u">Политика конфиденциальности</a>
+  </footer>
   <!-- includes -->
-undefined
+  <!--=include ../overlay/overlay.html -->
+  <!--=include ../service-popup/service-popup.html -->
+  <!--=include ../thanks-popup/thanks-popup.html -->
+  <div id="fake-scrollbar"></div>
+  <script>
+    window.addEventListener('load', function() {
+      var preloader = document.querySelector('#preloader'),
+        heroSect = document.querySelector('.hero-sect'),
+        featuresBlock = heroSect.nextElementSibling;
+
+
+      preloader && preloader.addEventListener('animationend', function() {
+        let animationName = event.animationName;
+
+        if (animationName === 'fadeIn') {
+          preloader.classList.add('loaded');
+          heroSect.classList.add('loaded');
+          featuresBlock.classList.add('loaded');
+        } else if (animationName === 'fadeOut') {
+          preloader.classList.add('hidden');
+          document.body.classList.remove('no-scroll')
+        }
+      });
+      
+    });
+  </script>
 </body>
 </html>
-<!--=include ../overlay/overlay.html -->
-<!--=include ../service-popup/service-popup.html -->
-<!--=include ../thanks-popup/thanks-popup.html -->

@@ -2,23 +2,24 @@
 .container {
   padding: 0 20px;
 }
+
 @media (min-width: 575.98px) {
-  .container {
-    padding: 0 calc(50% - 140px);
-  }
-}
-@media (min-width: 767.98px) {
   .container {
     padding: 0 calc(50% - 268px);
   }
 }
+@media (min-width: 767.98px) {
+  .container {
+    padding: 0 calc(50% - 304px);
+  }
+}
 @media (min-width: 1023.98px) {
   .container {
-    padding: 0 calc(50% - 340px);
+    padding: 0 calc(50% - 412px);
   }
 }
 @media (min-width: 1439.98px) {
   .container {
-    padding: 0 calc(50% - 460px);
+    padding: 0 calc(50% - 600px);
   }
 }

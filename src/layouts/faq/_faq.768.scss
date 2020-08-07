@@ -2,3 +2,11 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.faq-sect {
+  padding-bottom: responsive('768->1023', '320->375');
+  &__descr {
+    max-width: 545px;
+    margin-bottom: 60px;
+  }
+}

@@ -1,6 +1,11 @@
 (function() {
-  thanksPopup = new Popup('.thanks-popup', {
-    closeButtons: '.thanks-popup__close'
+  // thanksPopup = new Popup('.thanks-popup', {
+  //   closeButtons: '.thanks-popup__close'
+  // });
+
+  servicePopup = new Popup('.service-popup', {
+    closeButtons: '.service-popup__close',
+    openButtons: '.service'
   });
 
   // thanksPopup.addEventListener('popupbeforeopen', function() {
@@ -17,4 +22,56 @@
   //     }
   //   }
   // });
+
+  let checkPopupCaller = function(elem) {
+    if (elem.dataset.descr) {
+      return elem;
+    } else {
+      return checkPopupCaller(elem.parentElement);
+    }
+  },
+  servicePopupCnt = q('.service-popup__cnt', servicePopup),
+  printServiceText = function(event, serviceCaller) {
+    serviceCaller = serviceCaller || this.caller;
+
+    let caller = checkPopupCaller(serviceCaller),
+      popupImage = q('.service-popup__img', servicePopupCnt),
+      popupTitle = popupImage.nextElementSibling,
+      popupDescr = popupTitle.nextElementSibling,
+      popupList = q('.service-popup__list', servicePopupCnt),
+      prev = q('.prev', servicePopupCnt),
+      next = q('.next', servicePopupCnt),
+      callerImage = q('.service__img', caller),
+      callerTitle = q('.service__title', caller),
+      callerDescr = caller.dataset.descr,
+      callerList = caller.dataset.list.split(';')
+                    .reduce((prev, next) => prev + '<li class="service-popup__list-item">– ' + next + '</li>', '');
+
+    currentCaller = caller;
+
+    prev.classList.toggle('disabled', !currentCaller.previousElementSibling);
+    next.classList.toggle('disabled', !currentCaller.nextElementSibling);
+
+    popupImage.src = callerImage.src;
+    popupTitle.textContent = callerTitle.textContent;
+    popupDescr.textContent = callerDescr;
+    popupList.innerHTML = callerList;
+  },
+  currentCaller = null;
+
+  servicePopup.addEventListener('popupbeforeopen', printServiceText);
+  servicePopup.addEventListener('click', function() {
+    let target = event.target,
+      caller;
+
+    if (target.classList.contains('prev')) {
+      caller = currentCaller.previousElementSibling;
+    } else if (target.classList.contains('next')) {
+      caller = currentCaller.nextElementSibling;
+    } else {
+      return;
+    }
+
+    printServiceText(event, caller);
+  })
 })()

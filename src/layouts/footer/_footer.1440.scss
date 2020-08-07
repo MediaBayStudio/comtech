@@ -2,3 +2,45 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+
+.ftr {
+  align-items: center;
+  &__top {
+  }
+  &__logo {
+    margin-bottom: 28px;
+  }
+  &__copy {
+  }
+  &__nav {
+
+  }
+  &__nav-list {
+    flex-flow: row;
+  }
+  &__nav-list-item {
+    width: auto;
+    &:nth-last-child(n+3) {
+      margin-bottom: 0;
+    }
+     &:nth-last-child(n+2) {
+      margin-right: 55px;
+    }
+  }
+  &__nav-link {
+
+  }
+  &__bottom {
+  }
+  &__dev {
+    display: block;
+  }
+  &__dev-link {
+
+
+  }
+  &__policy {
+
+  }
+}

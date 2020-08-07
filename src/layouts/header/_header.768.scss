@@ -2,3 +2,15 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.hdr {
+  &__nav {
+    &-list {
+      &-item {
+        &:nth-last-child(n+2) {
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+}

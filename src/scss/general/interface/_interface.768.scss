@@ -2,3 +2,9 @@
 @import '../../assets/colors';
 @import '../../assets/mixins';
 @import '../../assets/variables';
+
+.sect {
+  &-title {
+    font-size: 32px;
+  }
+}

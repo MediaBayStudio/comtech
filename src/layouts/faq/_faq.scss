@@ -2,3 +2,66 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.faq-sect {
+  padding-top: 55px;
+  padding-bottom: 320px;
+  will-change: max-height, height;
+  background: $lavender;
+  position: relative;
+  overflow: hidden;
+  &__title {
+    margin-bottom: 20px;
+    color: #5576A7;
+  }
+  &__descr {
+    margin-bottom: 35px;
+  }
+}
+
+#faq-sect__img {
+  width: 100%;
+  height: responsive('320->575', '300->380');
+  position: absolute;
+  bottom: 0;
+  right: responsive('320->575', '-30->-125');
+  fill: transparent;
+  color: $turquoise;
+  pointer-events: none;
+}
+
+.faq {
+  overflow: hidden;
+  transition: max-height .5s, margin .5s;
+  will-change: max-height, height;
+  &:nth-last-child(n+2) {
+    margin-bottom: 40px;
+  }
+  &.active {
+    > .faq__question {
+      &::before {
+        content: '–';
+      }
+    }
+  }
+  &__question {
+    display: flex;
+    align-items: flex-start;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: left;
+    transition: color .5s;
+    &::before {
+      content: '+';
+      font: bold 18px/105% NotoSans;
+      display: inline-block;
+      margin-right: 30px;
+      min-width: 10px;
+      pointer-events: none;
+      flex-shrink: 0;
+    }
+  }
+  &__answer {
+    padding: 20px 0 0 39px;
+  }
+}

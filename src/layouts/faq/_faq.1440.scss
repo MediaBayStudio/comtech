@@ -2,3 +2,18 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.faq-sect {
+  &__descr {
+  }
+  &__text-block {
+    max-width: 750px;
+  }
+
+}
+
+#faq-sect__img {
+  right: responsive('1440->1920', '-445->-655');
+  height: responsive('1440->1920', '600->700');
+  max-height: 700px;
+} 

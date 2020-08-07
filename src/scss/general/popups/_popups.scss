@@ -2,59 +2,62 @@
 @import '../../assets/colors';
 @import '../../assets/mixins';
 @import '../../assets/variables';
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 200%;
-  background: #000;
-  z-index: 3;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .5s, visibility .5s;
-  &.active {
-    opacity: 1;
-    visibility: visible;
-  }
-}
 
-.timer {
-  display: flex;
-  align-items: center;
-  transform: scale(.75);
-  pointer-events: none;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity .35s, visibility .35s;
-  &.hidden {
-    opacity: 0;
-    visibility: hidden;
-  }
-  &__svg {
-    overflow: visible;
-  }
-  &__circle {
-    stroke: #000;
-    stroke-width: 1.25;
-    transform-origin: center;
-    transform: rotate(-90deg) scaleY(-1);
-  }
-  &__number {
-    font: 14px sans-serif;
-    fill: #000;
-  }
-}
+// .overlay {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 200%;
+//   background: #000;
+//   z-index: 3;
+//   opacity: 0;
+//   visibility: hidden;
+//   transition: opacity .5s, visibility .5s;
+//   &.active {
+//     opacity: 1;
+//     visibility: visible;
+//   }
+// }
+
+// .timer {
+//   display: flex;
+//   align-items: center;
+//   transform: scale(.75);
+//   pointer-events: none;
+//   opacity: 1;
+//   visibility: visible;
+//   transition: opacity .35s, visibility .35s;
+//   &.hidden {
+//     opacity: 0;
+//     visibility: hidden;
+//   }
+//   &__svg {
+//     overflow: visible;
+//   }
+//   &__circle {
+//     stroke: #000;
+//     stroke-width: 1.25;
+//     transform-origin: center;
+//     transform: rotate(-90deg) scaleY(-1);
+//   }
+//   &__number {
+//     font: 14px sans-serif;
+//     fill: #000;
+//   }
+// }
 
 .close {
-  width: 17.5px;
-  height: 17.5px;
+  margin: 0 0 25px auto;
+  width: 22.5px;
+  height: 22.5px;
   padding: 2.5px;
   transition: color .4s;
+  color: $kingblue;
   &:active {
     transform: scale(.95);
   }
-  &__svg {
+  &__icon {
     pointer-events: none;
     width: 100%;
     height: 100%;
@@ -76,19 +79,24 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: #000;
+  background: transparentize($facebook, .3);
   opacity: 0;
   visibility: hidden;
   transition: opacity .5s, visibility .5s;
   overflow: auto;
   z-index: 5;
+  font: 15px/140% NotoSans;
   &.active {
     opacity: 1;
     visibility: visible;
   }
-  &__content {
+  &__cnt {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    padding: 20px 20px 40px;
     background-color: #fff;
-    color: #000;
+    overflow: hidden;
   }
   &__close {
     &-block {
@@ -100,5 +108,55 @@
   }
   &__descr {
 
+  }
+}
+
+.service-popup {
+  &__cnt {
+    transition: max-height .5s, height .5s;
+    max-width: 1200px;
+  }
+  &__img {
+    margin-bottom: 20px;
+  }
+  &__title {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  &__descr {
+    margin-bottom: 35px;
+  }
+  &__nav {
+    margin: 25px 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: $kingblue;
+    border-radius: 50%;
+    transition: background .5s, transform .2s;
+    &.disabled {
+      opacity: .5;
+      pointer-events: none;
+    }
+    &:active {
+      // transform: scale(.985);
+      transform: translateY(2px);
+    }
+    &.prev {
+      margin-right: 15px;
+      > .service-popup__btn-arrow {
+        transform: rotate(180deg);
+      }
+    }
+    &-arrow {
+      pointer-events: none;
+    }
   }
 }

@@ -2,3 +2,38 @@
 @import '../../assets/colors';
 @import '../../assets/mixins';
 @import '../../assets/variables';
+
+
+.popup {
+  font-size: 16px;
+  &__cnt {
+    padding: 50px;
+  }
+
+}
+
+.service-popup {
+  padding-top: 100px;
+  &__img {
+    margin-bottom: 35px;
+    width: 72px;
+    height: 72px;
+  }
+  &__cnt {
+    width: 100%;
+    padding: 80px 100px;
+  }
+  &__title {
+    margin-bottom: 25px;
+  }
+  &__descr {
+    margin-bottom: 40px;
+    max-width: 690px;
+  }
+  &__close {
+    margin: -50px -70px 30px auto;
+  }
+  &__list {
+    max-width: 490px;
+  }
+}

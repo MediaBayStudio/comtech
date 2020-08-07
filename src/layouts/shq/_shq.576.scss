@@ -2,3 +2,20 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.shq-sect {
+  padding-top: 50px;
+  padding-bottom: 115px;
+  &__img {
+    &-left {
+      width: 224px;
+      left: responsive('576->767', '-55->40');
+      bottom: 15px;
+    }
+    &-right {
+      width: 175px;
+      right: responsive('576->767', '-50->40');
+      bottom: 15px;
+    }
+  }
+}

@@ -2,3 +2,111 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.burger {
+  display: inline-flex;
+  transition: opacity .15s linear;
+  background: 0 0;
+  border: 0;
+  overflow: visible;
+  transition: transform .5s;
+  &.active {
+    transform: translateY(2px);
+    .burger__inner {
+      transform: translate3d(0, -10px, 0) rotate(-45deg);
+      transition-delay: .22s;
+      transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+      // background: $white;
+      &::after {
+        top: 0;
+        opacity: 0;
+        transition: top .2s cubic-bezier(.33333, 0, .66667, .33333), opacity .1s .22s linear, color .25s .4s;
+        // background: $white;
+      }
+      &::before {
+        top: 0;
+        transform: rotate(-90deg);
+        transition: top .1s .16s cubic-bezier(.33333, 0, .66667, .33333), transform .13s .25s cubic-bezier(.215, .61, .355, 1), color .25s .4s;
+        // background: $white;
+      }
+    }
+  }
+  &:focus {
+    outline: 0;
+  }
+  &__box {
+    flex-shrink: 0;
+    width: 30px;
+    height: 18px;
+    display: inline-block;
+    position: relative;
+  }
+  &__inner {
+    margin-top: -2px;
+    display: block;
+    width: 100%;
+    height: calc(4 / 24 * 100%);
+    position: absolute;
+    bottom: 0;
+    transition: transform .13s .13s cubic-bezier(.55, .055, .675, .19);
+    background: $kingblue;
+    border-radius: 2px;
+    &::after,
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: $kingblue;
+      border-radius: inherit;
+    }
+    &::after {
+      bottom: -250.8%;
+      // top: -501.6%;
+      top: -515.6%;
+      transition: top .2s .2s cubic-bezier(.33333, .66667, .66667, 1), opacity .1s linear;
+    }
+    &::before {
+      top: -250.8%;
+      transition: top .12s .2s cubic-bezier(.33333, .66667, .66667, 1), transform .13s cubic-bezier(.55, .055, .675, .19);
+    }
+  }
+}
+
+.menu {
+  display: none;
+  width: 78%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  // z-index: 4;
+  &.active {
+    display: inline-block;
+  }
+  &__cnt {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    width: 80vw;
+    max-width: 400px;
+    height: calc(var(--vh, 1vh) * 100);
+    max-height: 100vh;
+    max-height: calc(var(--vh, 1vh) * 100);
+    height: 100vh;
+    padding: 15px 20px 7.05vh; // 40px на width: 320px;
+    background: $white;
+    overflow: auto;
+  }
+  &__nav {
+    margin-top: 80px;
+    color: $facebook;
+    font: 16px/100% NotoSans;
+    &-list-item {
+      &:nth-last-child(n+2) {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}

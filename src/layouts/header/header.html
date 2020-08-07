@@ -1,30 +1,218 @@
 <!DOCTYPE html>
 <html lang="ru-RU">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="Комфортные Технологии занимается уборкой промышленных помещений, офисов, торговых центров. Только профессиональные моющие средства и профессиональное оборудование.">
   <!-- fonts -->
+  <link rel="preload" href="./fonts/NotoSans.woff" as="font" type="font/woff" crossorigin="anonymous"/>
+  <link rel="preload" href="./fonts/NotoSans-Black.woff" as="font" type="font/woff" crossorigin="anonymous"/>
+  <link rel="preload" href="./fonts/NotoSans-Bold.woff" as="font" type="font/woff" crossorigin="anonymous"/>
+  <link rel="preload" href="./fonts/NotoSans-BoldItalic.woff" as="font" type="font/woff" crossorigin="anonymous"/>
+  <link rel="preload" href="./fonts/SegoeUI-SemiBold.woff" as="font" type="font/woff" crossorigin="anonymous"/>
   <!-- favicons -->
-
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#4c73eb">
+  <meta name="theme-color" content="#ffffff">
   <!-- styles -->
-	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" media="(min-width:419.98px)" href="./css/style.420.css">
-	<link rel="stylesheet" media="(min-width:575.98px)" href="./css/style.576.css">
-	<link rel="stylesheet" media="(min-width:767.98px)" href="./css/style.768.css">
-	<link rel="stylesheet" media="(min-width:1023.98px)" href="./css/style.1024.css">
-	<link rel="stylesheet" media="(min-width:1439.98px)" href="./css/style.1440.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" media="(min-width:419.98px)" href="./css/style.420.css">
+  <link rel="stylesheet" media="(min-width:575.98px)" href="./css/style.576.css">
+  <link rel="stylesheet" media="(min-width:767.98px)" href="./css/style.768.css">
+  <link rel="stylesheet" media="(min-width:1023.98px)" href="./css/style.1024.css">
+  <link rel="stylesheet" media="(min-width:1439.98px)" href="./css/style.1440.css">
   <link rel='stylesheet' href='./css/hover.css' media='(hover), (min-width:1024px)' />
   <!-- scripts -->
-	<script defer src="./js/lazy.min.js"></script>
-	<script defer src="./js/MobileMenu.min.js"></script>
-	<script defer src="./js/Popup.min.js"></script>
-	<script defer src="./js/svg4everybody.min.js"></script>
-	<script defer src="./js/main.js"></script>
-  <title>Document</title>
+  <script defer src="./js/lazy.min.js"></script>
+  <script defer src="./js/MobileMenu.min.js"></script>
+  <script defer src="./js/Popup.min.js"></script>
+  <script defer src="./js/svg4everybody.min.js"></script>
+  <script defer src="./js/main.js"></script>
+  <style>
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes spin {
+      0% {
+        transform: rotate(0);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    @-webkit-keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @-webkit-keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      -ms-align-items: center;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background: #f8f9fe;
+      z-index: 10;
+    }
+    #preloader__inner {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      -ms-align-items: center;
+      align-items: center;
+      opacity: 0;
+      -webkit-animation: fadeIn .35s .25s linear forwards;
+      animation: fadeIn .35s .25s linear forwards;
+    }
+    #preloader__logo-circle {
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+      -webkit-animation: spin 2.5s infinite linear;
+      animation: spin 2.5s infinite linear;
+    }
+    #preloader__logo-text {
+      width: 90px;
+      height: 30px;
+    }
+    #preloader.loaded {
+      -webkit-animation: fadeOut .5s linear;
+      animation: fadeOut .5s linear;
+    }
+    @media (min-width: 767.98px) {
+      #preloader__logo-circle {
+        width: 40px;
+        height: 40px;
+      }
+      #preloader__logo-text {
+        width: 115px;
+        height: 35px;
+      }
+    }
+    @media (min-width: 1023.98px) {
+      #preloader__logo-circle {
+        width: 50px;
+        height: 50px;
+      }
+      #preloader__logo-text {
+        width: 130px;
+        height: 40px;
+      }
+    }
+  </style>
+  <title>Промышленный клининг для бизнеса - Комфортные Технологии</title>
 </head>
-<body>
-  <!-- includes -->
-<!--=include ../mobile-menu/mobile-menu.html -->
+<body class="no-scroll">
+<!-- </body> -->
+  <div id="preloader">
+    <div id="preloader__inner">
+      <svg id="preloader__logo-circle" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" id="logo-circle">
+        <path d="M27.571 18.572a14.902 14.902 0 0 0-4.182-8.456 14.763 14.763 0 0 0-3.486-2.604 9.028 9.028 0 0 1 3.674 7.292l-.001.121a9.037 9.037 0 0 1-1.359 4.666 14.923 14.923 0 0 1-2.853 4.048A14.575 14.575 0 0 1 9 27.976c-.47 0-.936-.023-1.396-.067a14.47 14.47 0 0 0 7.08 1.84c5.634 0 10.525-3.212 12.987-7.927a15.271 15.271 0 0 0-.1-3.25z" fill="url(#paint0_linear)"></path>
+        <path d="M14.686 23.808a8.822 8.822 0 0 1-3.723-.826 14.675 14.675 0 0 1-4.795-3.064 14.9 14.9 0 0 1-4.462-8.73 15.128 15.128 0 0 1-.112-3.06A14.927 14.927 0 0 0 0 14.875a14.9 14.9 0 0 0 7.604 13.034 14.614 14.614 0 0 0 3.501-.085 14.578 14.578 0 0 0 8.26-4.185 14.922 14.922 0 0 0 2.852-4.047c-1.574 2.533-4.358 4.216-7.531 4.216z" fill="url(#paint1_linear)"></path>
+        <path d="M21.044 1.463a14.71 14.71 0 0 0-2.729.138 14.597 14.597 0 0 0-8.625 4.57 14.894 14.894 0 0 0-2.684 4.096c1.441-2.5 4.038-4.232 7.049-4.446a8.773 8.773 0 0 1 5.848 1.69 14.749 14.749 0 0 1 3.486 2.604 14.906 14.906 0 0 1 4.182 8.456 15.13 15.13 0 0 1 .1 3.25 14.94 14.94 0 0 0 1.666-5.973c.02-.322.032-.647.032-.973 0-5.908-3.4-11.01-8.325-13.412z" fill="url(#paint2_linear)"></path>
+        <path d="M16.081.068C15.621.024 15.156 0 14.685 0 8.972 0 4.023 3.303 1.595 8.128a15.285 15.285 0 0 0 .112 3.06 14.905 14.905 0 0 0 4.46 8.73 14.66 14.66 0 0 0 4.796 3.064 9.01 9.01 0 0 1-5.165-8.023l-.002-.157c0-1.654.44-3.204 1.209-4.536A14.917 14.917 0 0 1 9.689 6.17a14.597 14.597 0 0 1 8.626-4.57 14.56 14.56 0 0 1 2.729-.138A14.457 14.457 0 0 0 16.08.068z" fill="url(#paint3_linear)"></path>
+        <defs>
+          <linearGradient id="paint0_linear" x1="12.899" y1="28.484" x2="24.705" y2="14.118" gradientUnits="userSpaceOnUse">
+            <stop offset=".028" stop-color="#A1D4C5"></stop>
+            <stop offset=".382" stop-color="#62BDA4"></stop>
+            <stop offset=".573" stop-color="#4CA98C"></stop>
+            <stop offset=".81" stop-color="#309676"></stop>
+            <stop offset=".948" stop-color="#238F6E"></stop>
+          </linearGradient>
+          <linearGradient id="paint1_linear" y1="18.052" x2="22.217" y2="18.052" gradientUnits="userSpaceOnUse">
+            <stop offset=".014" stop-color="#7698CC"></stop>
+            <stop offset=".382" stop-color="#4B6DB1"></stop>
+            <stop offset=".96" stop-color="#305893"></stop>
+          </linearGradient>
+          <linearGradient id="paint2_linear" x1="28.888" y1="14.72" x2="11.542" y2="4.614" gradientUnits="userSpaceOnUse">
+            <stop offset=".014" stop-color="#7698CC"></stop>
+            <stop offset=".382" stop-color="#4B6DB1"></stop>
+            <stop offset=".96" stop-color="#305893"></stop>
+          </linearGradient>
+          <linearGradient id="paint3_linear" x1="19.276" y1="1.97" x2="5.268" y2="15.688" gradientUnits="userSpaceOnUse">
+            <stop offset=".036" stop-color="#F2B065"></stop>
+            <stop offset=".093" stop-color="#F2A951"></stop>
+            <stop offset=".156" stop-color="#F2A341"></stop>
+            <stop offset=".221" stop-color="#F2A037"></stop>
+            <stop offset=".29" stop-color="#F29E34"></stop>
+            <stop offset=".937" stop-color="#E1821E"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+      <svg id="preloader__logo-text">
+        <use xlink:href="img/icons-sprite.svg#logo-text"></use>
+      </svg>
+    </div>
+  </div>
+  <header class="hdr container">
+    <img src="#" data-src="img/logo.svg" alt="Логотип Комфортные Технологии" title="Логотип Комфортные Технологии" class="hdr__logo lazy">
+    <nav class="hdr__nav">
+      <ul class="hdr__nav-list">
+        <li class="hdr__nav-list-item">
+          <a href="#services" title="Перейти в раздел услуги" class="hdr__nav-link">Услуги</a>
+        </li>
+        <li class="hdr__nav-list-item">
+          <a href="#about" title="Перейти в раздел о нас" class="hdr__nav-link">О нас</a>
+        </li>
+        <li class="hdr__nav-list-item">
+          <a href="#faq" title="Перейти в раздел вопрос-ответ" class="hdr__nav-link">Вопрос-ответ</a>
+        </li>
+        <li class="hdr__nav-list-item">
+          <a href="#shq" title="Перейти в раздел напишите нам" class="hdr__nav-link">Напишите нам</a>
+        </li>
+      </ul>
+    </nav>
+    <button class="burger hdr__burger" type="button">
+      <span class="burger__box">
+        <span class="burger__inner"></span>
+      </span>
+    </button>
+    <!-- includes -->
+    <!--=include ../mobile-menu/mobile-menu.html -->
+  </header>

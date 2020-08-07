@@ -2,3 +2,23 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.faq-sect {
+  padding-bottom: 80px;
+  &__descr {
+    max-width: 275px;
+    margin-bottom: 70px;
+  }
+  &__text-block {
+    max-width: 530px;
+  }
+
+}
+
+#faq-sect__img {
+  fill: $turquoise;
+  color: transparent;
+  bottom: auto;
+  top: 0;
+  right: responsive('1024->1439', '-385->-450');
+} 

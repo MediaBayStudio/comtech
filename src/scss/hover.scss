@@ -2,3 +2,38 @@
 @import 'assets/colors';
 @import 'assets/mixins';
 @import 'assets/variables';
+
+.hdr__nav-link:hover::after {
+  opacity: 1;
+  transform: translateY(5px);
+}
+
+.ftr__nav-link:hover::after {
+  opacity: 1;
+  transform: translateY(7px);
+}
+
+.hero-sect__btn:hover::before {
+  opacity: 0;
+}
+
+.service:hover {
+  box-shadow: 0px 4px 8px rgba(135, 135, 135, 0.1);
+  > .service__btn {
+    opacity: 1;
+  }
+}
+
+.shq-sect__form > .btn:hover,
+.service-popup__btn:hover  {
+  background: $orange;
+}
+
+.ftr__policy:hover,
+.check__link:hover {
+  border-bottom-color: transparent;
+}
+
+.close:hover {
+  color: $orange;
+}

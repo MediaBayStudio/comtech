@@ -8,8 +8,18 @@ a[href="#"] {
   pointer-events: none;
 }
 
+body {
+  color: $black;
+  font-family: NotoSans;
+}
+
 body.no-scroll {
   overflow: hidden;
+}
+
+.disabled {
+  opacity: .5;
+  pointer-events: none;
 }
 
 // img.lazy {
@@ -49,10 +59,11 @@ body.no-scroll {
 
   }
   &-title {
-
+    font: 900 26px/140% NotoSans;
+    color: $orange;
   }
   &-descr {
-
+    font: 16px/160% NotoSans;
   }
 }
 

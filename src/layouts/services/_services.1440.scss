@@ -2,3 +2,39 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.services-sect {
+  padding-top: 60px;
+  padding-bottom: 100px;
+  &__title {
+    margin-bottom: 45px;
+  }
+  &__services {
+    
+  }
+}
+
+.service {
+  cursor: pointer;
+  display: grid;
+  grid-template-rows: auto auto;
+  width: 390px;
+  height: 176px;
+  &__img {
+    margin: 0 30px 0 0;
+    width: 40px;
+    height: 40px;
+  }
+  &__title {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  &__descr {
+    max-width: 218px;
+    font-size: 16px;
+  }
+  &__btn {
+    margin: auto 0 0 auto;
+    grid-row: 2;
+  }
+}

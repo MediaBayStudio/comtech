@@ -2,3 +2,32 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.hdr {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $white;
+  position: relative;
+  z-index: 2;
+  &__nav {
+    display: none;
+  }
+  &.fixed {
+    position: fixed;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation: translateToBottom .5s;
+    > .hdr__logo {
+      display: none;
+    }
+    > .hdr__burger {
+      margin-left: auto;
+    }
+  }
+}

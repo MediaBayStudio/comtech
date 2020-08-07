@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <!-- fonts -->
+  <!-- <link rel="preload" href="./fonts/NotoSans.woff" as="font" type="font/woff" crossorigin="anonymous"/>
+  <link rel="preload" href="./fonts/NotoSans-Black.woff" as="font" type="font/woff" crossorigin="anonymous"/>
+  <link rel="preload" href="./fonts/NotoSans-Bold.woff" as="font" type="font/woff" crossorigin="anonymous"/>
+  <link rel="preload" href="./fonts/NotoSans-BoldItalic.woff" as="font" type="font/woff" crossorigin="anonymous"/>
+  <link rel="preload" href="./fonts/SegoeUI-SemiBold.woff" as="font" type="font/woff" crossorigin="anonymous"/> -->
+  <!-- favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#4c73eb">
+  <meta name="theme-color" content="#ffffff">
+  <!-- styles -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" media="(min-width:419.98px)" href="./css/style.420.css">
+  <link rel="stylesheet" media="(min-width:575.98px)" href="./css/style.576.css">
+  <link rel="stylesheet" media="(min-width:767.98px)" href="./css/style.768.css">
+  <link rel="stylesheet" media="(min-width:1023.98px)" href="./css/style.1024.css">
+  <link rel="stylesheet" media="(min-width:1439.98px)" href="./css/style.1440.css">
+  <link rel='stylesheet' href='./css/hover.css' media='(hover), (min-width:1024px)' />
+  <!-- scripts -->
+  <script defer src="./js/lazy.min.js"></script>
+  <script defer src="./js/MobileMenu.min.js"></script>
+  <script defer src="./js/Popup.min.js"></script>
+  <script defer src="./js/svg4everybody.min.js"></script>
+  <script defer src="./js/main.js"></script>
+  <style>
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      -ms-align-items: center;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background: #f8f9fe;
+      z-index: 10;
+    }
+
+    #preloader__inner {}
+
+    #preloader__logo-circle {
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+    }
+
+    #preloader__logo-text {
+      width: 80px;
+      height: 15px;
+    }
+  </style>
+  <title>Комфортные Технологии</title>
+</head>
+
+<body class="no-scroll">
+  <div id="preloader">
+    <div id="preloader__inner">
+      <svg id="preloader__logo-circle">
+        <use xlink:href="img/icons-sprite.svg#logo-circle"></use>
+      </svg>
+      <svg id="preloader__logo-text">
+        <use xlink:href="img/icons-sprite.svg#logo-text"></use>
+      </svg>
+    </div>
+  </div>
+  <header class="hdr container">
+    <img src="#" data-src="img/logo.svg" alt="Логотип Комфортные Технологии" title="Логотип Комфортные Технологии" class="hdr__logo lazy">
+    <nav class="hdr__nav">
+      <ul class="hdr__nav-list">
+        <li class="hdr__nav-list-item">
+          <a href="#services" title="Перейти в раздел услуги" class="hdr__nav-link">Услуги</a>
+        </li>
+        <li class="hdr__nav-list-item">
+          <a href="#about" title="Перейти в раздел о нас" class="hdr__nav-link">О нас</a>
+        </li>
+        <li class="hdr__nav-list-item">
+          <a href="#faq" title="Перейти в раздел вопрос-ответ" class="hdr__nav-link">Вопрос-ответ</a>
+        </li>
+        <li class="hdr__nav-list-item">
+          <a href="#shq" title="Перейти в раздел напишите нам" class="hdr__nav-link">Напишите нам</a>
+        </li>
+      </ul>
+    </nav>
+    <button class="burger hdr__burger" type="button">
+      <span class="burger__box">
+        <span class="burger__inner"></span>
+      </span>
+    </button>
+    <!-- includes -->
+    <aside class="menu">
+      <div class="menu__cnt">
+        <img src="img/logo.svg" alt="Логотип Комфортные Технологии" class="menu__logo">
+        <nav class="menu__nav">
+          <ul class="menu__nav-list">
+            <li class="menu__nav-list-item">
+              <a href="#services" class="menu__nav-link">Услуги</a>
+            </li>
+            <li class="menu__nav-list-item">
+              <a href="#about" class="menu__nav-link">О нас</a>
+            </li>
+            <li class="menu__nav-list-item">
+              <a href="#faq" class="menu__nav-link">Вопрос-ответ</a>
+            </li>
+            <li class="menu__nav-list-item">
+              <a href="#shq" class="menu__nav-link">Напишите нам</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+  </header>
+  <section class="hero-sect container">
+    <h1 class="hero-sect__title"><b class="b">Уборка</b> офисов и производственных помещений</h1>
+    <p class="hero-sect__descr">Наведем порядок так, что вы останетесь довольны</p>
+    <a href="#service" class="hero-sect__btn btn">
+      <span class="hero-sect__btn-text">Все услуги</span>
+    </a>
+  </section>
+  <div class="features container">
+    <div class="feat">
+      <img src="#" alt="Личный менеджер" class="feat__img lazy" data-src="img/feat-1.svg" title="Личный менеджер">
+      <p class="feat__title">Назначаем личного менеджера –  он берет на себя все заботы</p>
+    </div>
+    <div class="feat">
+      <img src="#" alt="Ответственный подход" class="feat__img lazy" data-src="img/feat-2.svg" title="Ответственный подход">
+      <p class="feat__title">Ответственно подходим к работе  и отвечаем за все головой</p>
+    </div>
+    <div class="feat">
+      <img src="#" alt="Сертификация" class="feat__img lazy" data-src="img/feat-3.svg" title="Сертификация">
+      <p class="feat__title">Используем сертифицированные моющие средства и технику</p>
+    </div>
+  </div>
+  <section class="services-sect container">
+    <h2 class="services-sect__title sect-title">Наши услуги</h2>
+    <div class="services-sect__services">
+      <div class="service">
+        <img src="#" alt="Ежедневная комплексная уборка" class="service__img lazy" data-src="img/service-1.svg">
+        <strong class="service__title">Ежедневная комплексная уборка</strong>
+        <p class="service__descr">Ежедневное поддержание чистоты и порядка на вашем объекте.</p>
+        <button type="button" title="Подробнее" class="service__btn"><img src="img/arrow.svg" alt="Стрелка" class="service__btn-arrow"></button>
+      </div>
+      <div class="service">
+        <img src="#" alt="Генеральная уборка" class="service__img lazy" data-src="img/service-2.svg">
+        <strong class="service__title">Генеральная уборка</strong>
+        <p class="service__descr">Очистка помещений от сыльных загрязнений специальными средствами.</p>
+        <button type="button" title="Подробнее" class="service__btn"><img src="img/arrow.svg" alt="Стрелка" class="service__btn-arrow"></button>
+      </div>
+      <div class="service">
+        <img src="#" alt="Уборка после ремонта" class="service__img lazy" data-src="img/service-3.svg">
+        <strong class="service__title">Уборка после ремонта</strong>
+        <p class="service__descr">Отмоем помещение от штукатурки, краски и липкого скотча.</p>
+        <button type="button" title="Подробнее" class="service__btn"><img src="img/arrow.svg" alt="Стрелка" class="service__btn-arrow"></button>
+      </div>
+      <div class="service">
+        <img src="#" alt="Текущее содержание помещений" class="service__img lazy" data-src="img/service-4.svg">
+        <strong class="service__title">Текущее содержание помещений</strong>
+        <p class="service__descr">Каждый день проверяем в порядке ли ваш объект и все коммуникации. </p>
+        <button type="button" title="Подробнее" class="service__btn"><img src="img/arrow.svg" alt="Стрелка" class="service__btn-arrow"></button>
+      </div>
+      <div class="service">
+        <img src="#" alt="Мытье фасадов" class="service__img lazy" data-src="img/service-5.svg">
+        <strong class="service__title">Мытье фасадов</strong>
+        <p class="service__descr">Очищаем от грязи и пыли фасады из стекла и профиля.</p>
+        <button type="button" title="Подробнее" class="service__btn"><img src="img/arrow.svg" alt="Стрелка" class="service__btn-arrow"></button>
+      </div>
+      <div class="service">
+        <img src="#" alt="Содержание территории летом" class="service__img lazy" data-src="img/service-6.svg">
+        <strong class="service__title">Содержание территории летом</strong>
+        <p class="service__descr">Убираем прилегающую территорию в теплое время.</p>
+        <button type="button" title="Подробнее" class="service__btn"><img src="img/arrow.svg" alt="Стрелка" class="service__btn-arrow"></button>
+      </div>
+      <div class="service">
+        <img src="#" alt="Содержание территории зимой" class="service__img lazy" data-src="img/service-7.svg">
+        <strong class="service__title">Содержание территории зимой</strong>
+        <p class="service__descr">Убираем прилегающую территорию в холодное время.</p>
+        <button type="button" title="Подробнее" class="service__btn"><img src="img/arrow.svg" alt="Стрелка" class="service__btn-arrow"></button>
+      </div>
+    </div>
+  </section>
+  <section class="about-sect container">
+    <h2 class="about-sect__title sect-title">О компании</h2>
+    <div class="about-sect__text">
+      <p class="about-sect__descr">Комфортные Технологии существуют с 2017 года. Мы не просто клининговая компания. Мы – настоящие профессионалы в уборке!</p>
+      <p class="about-sect__descr">Нам важно не просто оставить после себя чистое помещение, фасад или прилегающую территорию. Мы заботимся о вашем комфорте.</p>
+      <p class="about-sect__descr">В работе используем исключительно сертифицированные РостТестом моющие средства и профессиональное клининговое оборудование. Наша команда – мастера чистоты, каждый из которых не пропустит мимо себя ни пятнышка.</p>
+    </div>
+    <img src="img/about-sect-img.jpg" alt="О компагии" class="about-sect__img">
+  </section>
+  <section class="faq-sect container">
+    <h2 class="faq-sect__title sect-title">Вопрос-ответ</h2>
+    <p class="faq-sect__descr sect__descr">Мы постарались ответить на 5 основных вопросов, которые чаще всего нам задают.</p>
+    <div class="faq-sect__text-block">
+      <div class="faq">
+        <button type="button" class="faq__question">На какие объекты вы выезжаете?</button>
+        <p class="faq__answer">Мы занимаемся клинингом промышленных и коммерческих помещений – терминалов, территорий заводов, бизнес-центров, торговых центров, складов и больших магазинов. Специализируемся на крупных и средних объектах – площадь помещения от 200 кв.м до 200 000 кв.м и более.</p>
+      </div>
+    </div>
+    <div class="faq">
+      <button type="button" class="faq__question">Кто будет убирать помещение?</button>
+      <p class="faq__answer"></p>
+    </div>
+    <div class="faq">
+      <button type="button" class="faq__question">Какое оборудование есть в вашем распоряжении?</button>
+      <p class="faq__answer"></p>
+    </div>
+    <div class="faq">
+      <button type="button" class="faq__question">Какие моющие средства вы используете?</button>
+      <p class="faq__answer"></p>
+    </div>
+    <div class="faq">
+      <button type="button" class="faq__question"></button>
+      <p class="faq__answer"></p>
+    </div>
+    </div>
+  </section>
+  <!--=include layouts/shq/shq.html -->
+  <!-- includes -->
+  <div class="overlay"></div>
+
+
+</body>
+
+</html>

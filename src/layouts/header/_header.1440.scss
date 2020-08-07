@@ -2,3 +2,21 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.hdr {
+  &.fixed {
+    > .hdr__logo {
+      width: 150px;
+    }
+    .hdr__nav-list-item:nth-last-child(n+2) {
+      margin-right: 60px;
+    }
+  }
+}
+
+.no-scroll {
+  > .hdr.fixed {
+    // padding-left: calc(50vw - 600px);
+    // padding-right: calc(50vw - 600px);
+  }
+}

@@ -2,3 +2,53 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+@keyframes slideBg320 {
+  0% {
+    opacity: 0;
+    background-position: right -50vw top;
+  }
+  65% {
+    opacity: 1;
+    background-position: right -220px top;
+  }
+  to {
+    opacity: 1;
+    background-position: right responsive('1024->1439', '-300->-235') top;
+  }
+}
+
+.hero-sect {
+  padding-top: 140px;
+  padding-bottom: 120px;
+  background-size: 900px 630px;
+  background-position: right -50vw top;
+  // background-position: right responsive('1024->1439', '-300->-235') top;
+  &__title {
+    max-width: 510px;
+    font-size: 44px;
+  }
+  &__descr {
+
+  }
+  &__btn {
+
+  }
+}
+
+
+.feat {
+  width: 260px;
+  height: 120px;
+  align-items: center;
+  flex-flow: row;
+  margin: 0;
+  &__img {
+    margin: 0 20px 0 0;
+    width: 45px;
+    height: 45px;
+  }
+  &__title {
+
+  }
+}

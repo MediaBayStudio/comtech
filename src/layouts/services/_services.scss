@@ -2,3 +2,46 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.services-sect {
+  padding-bottom: 60px;
+  &__title {
+    margin-bottom: 35px;
+  }
+  &__services {
+  }
+}
+
+.service {
+  max-width: 450px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  &__img {
+    margin-bottom: 20px;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+  &__title {
+    margin-bottom: 20px;
+    // max-width: 245px;
+    font: bold 18px/140% NotoSans;
+  }
+  &__descr {
+    margin-bottom: 25px;
+    font: 14px/140% NotoSans;
+  }
+  &__btn {
+    margin: 0 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: $kingblue;
+    border-radius: 50%;
+  }
+  &__btn-arrow {
+  }
+}

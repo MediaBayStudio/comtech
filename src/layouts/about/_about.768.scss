@@ -2,3 +2,27 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.about-sect {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto 40px auto;
+  &__title {
+    margin-bottom: 25px;
+    grid-row: 1;
+    grid-column: 3;
+  }
+  &__text {
+    grid-row: 2;
+    grid-column: 3;
+  }
+  &__descr {
+    margin-bottom: 25px;
+  }
+  &__img {
+    grid-row: 1/span 2;
+    grid-column: 1;
+    width: 189px;
+    height: 381px;
+  }
+}

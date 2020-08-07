@@ -2,3 +2,59 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.shq-sect {
+  padding-top: 50px;
+  padding-bottom: 300px;
+  position: relative;
+  overflow: hidden;
+  &__img {
+    &-left {
+      width: 200px;
+      position: absolute;
+      left: responsive('320->575', '-30->40');
+      // left: -30px;
+      bottom: 50px;
+    }
+    &-right {
+      width: 150px;
+      position: absolute;
+      right: responsive('320->575', '-30->40');
+      // right: -30px;
+      bottom: 50px;
+    }
+  }
+  &__title {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  &__descr {
+    margin: 0 auto 30px;
+    max-width: 300px;
+    text-align: center;
+  }
+  &__form {
+    max-width: 300px;
+    margin: auto;
+    .field {
+      &__email {
+        margin-bottom: 40px;
+      }
+      &__inp {
+        height: 35px;
+      }
+      &__textarea {
+        height: 35px;
+      }
+    }
+    .check {
+      margin-top: 20px;
+    }
+    .btn {
+      display: flex;
+      margin: 45px auto 0;
+      background: $turquoise;
+      transition: background .5s;
+    }
+  }
+}
