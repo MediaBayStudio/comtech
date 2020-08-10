@@ -12,8 +12,15 @@
 
 }
 
+.thanks-popup,
+.order-popup {
+  &__close {
+    margin: -35px -35px 25px auto;
+  }
+}
+
 .service-popup {
-  padding-top: 35px;
+  padding-top: 75px;
   &__img {
     width: 55px;
     height: 55px;

@@ -254,6 +254,7 @@ var lazy,
     overlay,
     thanksPopup,
     servicePopup,
+    orderPopup,
     thanksPopupTimer,
     // callbackPopup,
 // orderPopup,
@@ -394,24 +395,35 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   (function () {
-    // thanksPopup = new Popup('.thanks-popup', {
-    //   closeButtons: '.thanks-popup__close'
-    // });
+    thanksPopup = new Popup('.thanks-popup', {
+      closeButtons: '.thanks-popup__close'
+    });
     servicePopup = new Popup('.service-popup', {
       closeButtons: '.service-popup__close',
       openButtons: '.service'
+    });
+    orderPopup = new Popup('.order-popup', {
+      closeButtons: '.order-popup__close',
+      openButtons: '.service-popup__button'
     }); // thanksPopup.addEventListener('popupbeforeopen', function() {
     //   clearTimeout(thanksPopupTimer);
     // });
     // Закрытие всех попапов вместе с закрытием окна спасибо
-    // thanksPopup.addEventListener('popupbeforeclose', function() {
-    //   let otherPopups = [callbackPopup, orderPopup];
-    //   for (let i = 0; i < otherPopups.length; i++) {
-    //     if (otherPopups[i].classList.contains('active')) {
-    //       otherPopups[i].closePopup();
-    //     }
-    //   }
-    // });
+
+    thanksPopup.addEventListener('popupbeforeclose', function () {
+      var otherPopups = [servicePopup, orderPopup];
+      clearTimeout(thanksPopupTimer);
+
+      for (var i = 0; i < otherPopups.length; i++) {
+        if (otherPopups[i].classList.contains('active')) {
+          otherPopups[i].closePopup();
+        }
+      }
+    });
+    orderPopup.addEventListener('popupbeforeopen', function () {
+      var serviceTitle = q('.service-popup__title', servicePopup);
+      orderPopupInput.value = serviceTitle.textContent; // 
+    });
 
     var checkPopupCaller = function (elem) {
       if (elem.dataset.descr) {
@@ -420,6 +432,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return checkPopupCaller(elem.parentElement);
       }
     },
+        orderPopupInput = q('#order-popup__input'),
         servicePopupCnt = q('.service-popup__cnt', servicePopup),
         printServiceText = function (event, serviceCaller) {
       serviceCaller = serviceCaller || this.caller;
@@ -439,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function () {
       currentCaller = caller;
       prev.classList.toggle('disabled', !currentCaller.previousElementSibling);
       next.classList.toggle('disabled', !currentCaller.nextElementSibling);
-      popupImage.src = callerImage.src;
+      popupImage.src = callerImage.src[callerImage.src.length - 1] === '#' ? callerImage.lazyObject.src : callerImage.src;
       popupTitle.textContent = callerTitle.textContent;
       popupDescr.textContent = callerDescr;
       popupList.innerHTML = callerList;
@@ -459,9 +472,176 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
+      servicePopup.scrollTop = 0;
       printServiceText(event, caller);
     });
   })();
 
-  (function () {});
+  (function () {
+    var shqForm = q('.shq-sect__form'),
+        orderPopupForm = q('.order-popup__form'),
+        textFields = qa('input, textarea'),
+        errorsClass = 'invalid',
+        rules = {
+      'user-email': {
+        required: true,
+        pattern: /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/
+      },
+      'user-msg': {
+        required: true,
+        pattern: /[^\<\>\[\]%\&'`]+$/
+      },
+      'policy': {
+        required: 'Согласитель с политикой обработки персональных данных'
+      }
+    },
+        messages = {
+      'user-email': {
+        required: 'Введите E-mail',
+        pattern: 'Введите верный E-mail'
+      },
+      'user-msg': {
+        required: 'Введите сообщение',
+        pattern: 'Введены недопустимые символы'
+      },
+      'policy': {
+        required: 'Согласитель с политикой обработки персональных данных'
+      }
+    },
+        getFormData = function ($form) {
+      var formElements = $form.elements,
+          values = {};
+
+      for (var rule in rules) {
+        var formElement = formElements[rule];
+
+        if (formElement) {
+          values[rule] = formElement.value;
+        }
+      }
+
+      return values;
+    },
+        validationForm = function () {
+      event.preventDefault();
+      var errors = {},
+          thisForm = this,
+          values = getFormData(thisForm);
+
+      for (var elementName in values) {
+        var rule = rules[elementName],
+            $formElement = thisForm.elements[elementName],
+            elementValue = values[elementName];
+
+        if (rule) {
+          if ($formElement.hasAttribute('required') || rule.required === true) {
+            var elementType = $formElement.type,
+                pattern = rule.pattern;
+
+            if ((elementType === 'checkbox' || elementType === 'radio') && !$formElement.checked || elementValue === '') {
+              errors[elementName] = messages[elementName].required;
+              continue;
+            }
+
+            if (elementType !== 'cehckbox' && elementType !== 'radio' && pattern) {
+              if (pattern.test(elementValue) === false) {
+                errors[elementName] = messages[elementName].pattern;
+                continue;
+              }
+            }
+
+            hideError($formElement);
+          }
+        }
+      }
+
+      if (Object.keys(errors).length == 0) {
+        thisForm.removeEventListener('change', validationForm);
+        thisForm.removeEventListener('input', validationForm);
+
+        if (event.type === 'submit') {
+          submitHandler(thisForm);
+        }
+      } else {
+        thisForm.addEventListener('change', validationForm);
+        thisForm.addEventListener('input', validationForm);
+        showErrors(thisForm, errors);
+      }
+    },
+        showErrors = function ($form, errors) {
+      var $formElements = $form.elements;
+
+      for (var elementName in errors) {
+        var errorText = errors[elementName],
+            $errorElement = "<label class=\"" + errorsClass + "\">" + errorText + "</label>",
+            $formElement = $formElements[elementName],
+            $nextElement = $formElement.nextElementSibling;
+
+        if ($nextElement && $nextElement.classList.contains(errorsClass)) {
+          if ($nextElement.textContent !== errorText) {
+            $nextElement.textContent = errorText;
+          }
+
+          continue;
+        } else {
+          $formElement.insertAdjacentHTML('afterend', $errorElement);
+        }
+
+        $formElement.classList.add(errorsClass);
+      }
+    },
+        hideError = function ($formElement) {
+      var $nextElement = $formElement.nextElementSibling;
+      $formElement.classList.remove(errorsClass);
+
+      if ($nextElement && $nextElement.classList.contains(errorsClass)) {
+        $nextElement.parentElement.removeChild($nextElement);
+      }
+    },
+        submitHandler = function ($form) {
+      var xhr = new XMLHttpRequest(),
+          data = new FormData($form);
+      xhr.open($form.method, $form.action);
+      xhr.send(data);
+      xhr.addEventListener('readystatechange', function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var $formElements = $form.elements,
+              response = xhr.response;
+
+          for (var i = 0; i < $formElements.length; i++) {
+            hideError($formElements[i]);
+            $formElements[i].classList.remove('filled');
+          }
+
+          $form.reset();
+
+          if (response == 1) {
+            thanksPopup.openPopup();
+            thanksPopupTimer = setTimeout(function () {
+              thanksPopup.closePopup();
+            }, 3000);
+          }
+        }
+      });
+    };
+
+    shqForm.setAttribute('novalidate', '');
+    orderPopupForm.setAttribute('novalidate', '');
+    shqForm.addEventListener('submit', validationForm);
+    orderPopupForm.addEventListener('submit', validationForm);
+
+    var _loop = function (i) {
+      textFields[i].addEventListener('input', function () {
+        if (textFields[i].value === '') {
+          textFields[i].classList.remove('filled');
+        } else {
+          textFields[i].classList.add('filled');
+        }
+      });
+    };
+
+    for (var i = 0; i < textFields.length; i++) {
+      _loop(i);
+    }
+  })();
 });

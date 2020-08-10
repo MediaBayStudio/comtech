@@ -4,11 +4,12 @@
 @import '../../assets/variables';
 label.invalid {
   font: normal 10px/150% sans-serif;
-  color: #f00;
+  color: $error;
 }
 
-input.invalid {
-  border-bottom-color: #f00;
+input.invalid,
+textarea.invalid {
+  border-bottom-color: $error;
 }
 
 .check {
@@ -18,7 +19,8 @@ input.invalid {
   flex-wrap: wrap;
   cursor: pointer;
   > label.invalid {
-    margin-left: 30px;
+    margin-top: 5px;
+    margin-left: 25px;
     max-width: 200px;
     order: 10;
   }
@@ -82,19 +84,20 @@ input.invalid {
     background: none;
     padding-bottom: 10px;
     font: inherit;
-    color: #4d4d4d;
-    border-bottom: 1px solid #d4d4d4;
+    color: $darkgrey;
+    border-bottom: 1px solid $darkgrey;
     transition: border-bottom-color .35s;
     &::placeholder {
       font: inherit;
-      color: #878787;
+      color: $darkgrey;
       transition: color .35s;
     }
     &:focus,
     &.filled,
     &:focus.valid,
     &.filled.valid {
-      border-bottom-color: #291956;
+      color: $kingblue;
+      border-bottom-color: $kingblue;
       &::placeholder {
         color: rgba(0,0,0,0);
       }

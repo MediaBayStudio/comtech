@@ -35,11 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-
   //includes
-//=include dropdownText.js
-//=include menu.js
-//=include popups.js
-//=include forms.js
+  //=include dropdownText.js
+  //=include menu.js
+  //=include popups.js
+  //=include forms.js
 
 });

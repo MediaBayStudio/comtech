@@ -26,29 +26,34 @@
   <!-- includes -->
   <!--=include ../overlay/overlay.html -->
   <!--=include ../service-popup/service-popup.html -->
+  <!--=include ../order-popup.html -->
   <!--=include ../thanks-popup/thanks-popup.html -->
   <div id="fake-scrollbar"></div>
   <script>
-    window.addEventListener('load', function() {
+    window.onload = function() {
       var preloader = document.querySelector('#preloader'),
         heroSect = document.querySelector('.hero-sect'),
         featuresBlock = heroSect.nextElementSibling;
 
+      if (!preloader) {
+        return;
+      }
+
+      preloader.classList.add('loaded');
+      heroSect.classList.add('loaded');
+      featuresBlock.classList.add('loaded');
 
       preloader && preloader.addEventListener('animationend', function() {
         let animationName = event.animationName;
 
-        if (animationName === 'fadeIn') {
-          preloader.classList.add('loaded');
-          heroSect.classList.add('loaded');
-          featuresBlock.classList.add('loaded');
-        } else if (animationName === 'fadeOut') {
+        if (animationName === 'fadeOut') {
           preloader.classList.add('hidden');
           document.body.classList.remove('no-scroll')
         }
+
       });
       
-    });
+    };
   </script>
 </body>
 </html>

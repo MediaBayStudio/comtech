@@ -5,6 +5,7 @@
 
 .hdr {
   &.fixed {
+    padding: 15px calc(50vw - 600px);
     > .hdr__logo {
       width: 150px;
     }

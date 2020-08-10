@@ -1,0 +1,26 @@
+<div class="order-popup popup">
+  <div class="order-popup__cnt popup__cnt">
+    <button type="button" class="order-popup__close close">
+      <svg class="close__icon">
+        <use xlink:href="img/icons-sprite.svg#close"></use>
+      </svg>
+    </button>
+    <span class="order-popup__title">Заказать услугу</span>
+    <p class="order-popup__descr">Заполните форму и мы свяжемся с вами</p>
+    <form action="send.php" method="POST" class="order-popup__form">
+      <input type="text" name="user-service" id="order-popup__input">
+      <label class="field field__email">
+        <input type="text" name="user-email" class="field__inp" placeholder="E-mail" required>
+      </label>
+      <label class="field field__msg">
+        <textarea name="user-msg" class="field__textarea" placeholder="Сообщение" required></textarea>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="policy" class="check__inp" value="Принимаю полотику об обработке персональных данных" checked required>
+        <span class="check__pseudo-inp"></span>
+        <span class="check__text">Даю согласие на обработку данных и согласен с <a href="/policy.pdf" rel="noopener noreferrer nofollow" target="_blank" title="Посмотреть политику конфиденциальности"  class="check__link">политикой конфиденциальности</a></span>
+      </label>
+      <button class="btn">Отправить</button>
+    </form>
+  </div>
+</div>

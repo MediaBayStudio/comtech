@@ -2,3 +2,10 @@
 @import '../../assets/colors';
 @import '../../assets/mixins';
 @import '../../assets/variables';
+
+
+.service-popup {
+  &__cnt {
+    background: $white url('../img/service-popup-img.svg') center right 130px no-repeat;
+  }
+}

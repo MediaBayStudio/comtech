@@ -4,6 +4,9 @@
 @import '../../scss/assets/variables';
 
 .hdr {
+  &.fixed {
+    padding: 15px calc(50vw - 304px);
+  }
   &__nav {
     &-list {
       &-item {

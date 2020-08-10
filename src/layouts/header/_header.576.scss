@@ -5,8 +5,9 @@
 
 .hdr {
   &.fixed {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px calc(50vw - 268px);
+    // padding-top: 15px;
+    // padding-bottom: 15px;
     > .hdr__logo {
       display: block;
       width: 100px;
