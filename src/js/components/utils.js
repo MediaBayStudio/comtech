@@ -56,7 +56,11 @@ let lazy,
         if (r != wndwY + targetTop) {
           requestAnimationFrame(step);
         }
-      }
+      };
+
+    if (target.id === 'about') {
+      targetTop -= menu.parentElement.offsetHeight;
+    }
 
     requestAnimationFrame(step);
   };

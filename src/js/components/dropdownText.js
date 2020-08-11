@@ -48,7 +48,7 @@
         }
       };
 
-    initDropdown();
+    window.addEventListener('load', initDropdown);
 
   }
 

@@ -31,9 +31,7 @@
 
 
   orderPopup.addEventListener('popupbeforeopen', function() {
-    let serviceTitle = q('.service-popup__title', servicePopup);
-    orderPopupInput.value = serviceTitle.textContent;
-    // console.log(orderPopupInput.value);
+    orderPopupInput.value = q('.service-popup__title', servicePopup).textContent;
   });
 
   let checkPopupCaller = function(elem) {
@@ -71,23 +69,28 @@
     popupDescr.textContent = callerDescr;
     popupList.innerHTML = callerList;
   },
-  currentCaller = null;
-
-  servicePopup.addEventListener('popupbeforeopen', printServiceText);
-  servicePopup.addEventListener('click', function() {
+  toggleService = function(event) {
     let target = event.target,
+      keyCode = event.keyCode,
       caller;
 
-    if (target.classList.contains('prev')) {
+    if (target && target.classList.contains('prev') || keyCode && keyCode === 37) {
       caller = currentCaller.previousElementSibling;
-    } else if (target.classList.contains('next')) {
+    } else if (target && target.classList.contains('next') || keyCode && keyCode === 39) {
       caller = currentCaller.nextElementSibling;
     } else {
       return;
     }
 
-    servicePopup.scrollTop = 0;
+    if (caller) {
+      servicePopup.scrollTop = 0;
+      printServiceText(event, caller);
+    }
+  },
+  currentCaller = null;
 
-    printServiceText(event, caller);
-  })
+  servicePopup.addEventListener('popupbeforeopen', printServiceText);
+  servicePopup.addEventListener('click', toggleService);
+  document.addEventListener('keyup', toggleService);
+
 })()

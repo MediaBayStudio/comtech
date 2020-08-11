@@ -18,6 +18,13 @@
   }
 }
 
+#hero-sect-decor {
+  width: 680px;
+  // right: -20px;
+  right: responsive('1024->1439', '-20->60');
+  top: 35px;
+}
+
 .hero-sect {
   padding-top: 140px;
   padding-bottom: 120px;

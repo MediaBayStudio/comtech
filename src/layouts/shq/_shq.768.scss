@@ -3,6 +3,13 @@
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
 
+#shq-sect-decor {
+  bottom: auto;
+  top: 10px;
+  right: -300px;
+  width: 1135px;
+}
+
 .shq-sect {
 
   &__img {

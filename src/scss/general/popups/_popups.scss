@@ -176,14 +176,15 @@
     margin-bottom: 35px;
   }
   &__nav {
-    width: 100%;
-    margin: 40px 0 0 auto;
+    width: 240px;
+    margin: 40px auto 0;
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-end;
     justify-content: center;
   }
   &__button {
-    margin: 0 auto 0 0;
+    margin: 0 auto 25px;
     background: $turquoise;
     transition: background .5s;
   }

@@ -12,6 +12,9 @@
   background: $white;
   position: relative;
   z-index: 2;
+  &__logo {
+    cursor: pointer;
+  }
   &__nav {
     display: none;
   }

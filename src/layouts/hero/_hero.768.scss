@@ -18,6 +18,12 @@
   }
 }
 
+#hero-sect-decor {
+  width: 730px;
+  right: responsive('768->1023', '-230->-70');
+  top: 0;
+}
+
 .hero-sect {
   background-size: 840px 625px;
   // background-position: right responsive('768->1023', '-395->-265') top;

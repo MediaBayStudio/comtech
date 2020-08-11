@@ -3,6 +3,11 @@
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
 
+#shq-sect-decor {
+  width: 1545px;
+  right: responsive('1440->1920', '-50->150');
+}
+
 .shq-sect {
   padding-bottom: 175px;
   &__img {

@@ -29,6 +29,14 @@
         required: 'Согласитель с политикой обработки персональных данных'
       }
     },
+/*
+  Функция получения значения полей у текущей формы.
+  Ищет только те элементы формы, именя которых указаны в rules.
+  Возвращает объект: 
+  {название-поля: значение-поля}
+  Например:
+  {'user-email': 'mail@mail.ru'}
+*/
     getFormData = function($form) {
       let formElements = $form.elements,
         values = {};
@@ -43,6 +51,9 @@
 
       return values;
     },
+/*
+  Функция проверки правильности заполнения формы.
+*/
     validationForm = function() {
       event.preventDefault();
 

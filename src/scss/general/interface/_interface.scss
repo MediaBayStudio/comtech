@@ -54,6 +54,10 @@ body.no-scroll {
 }
 
 .sect {
+  &-decor {
+    position: absolute;
+    // pointer-events: none;
+  }
 
   &_bg {
 

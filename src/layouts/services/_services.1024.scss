@@ -3,6 +3,11 @@
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
 
+#services-sect-decor {
+  bottom: 215px;
+  right: responsive('1024->1439', '75->215');
+}
+
 .services-sect {
   padding-top: 30px;
   &__title {
@@ -14,14 +19,10 @@
 }
 
 .service {
-  cursor: pointer;
   display: grid;
   grid-template-rows: auto auto auto;
   grid-template-columns: auto auto;
-  padding: 20px;
   width: 260px;
-  border-radius: 10px;
-  transition: box-shadow .5s;
   &__img {
     margin: 0 20px 0 0;
     grid-row: 1;

@@ -3,6 +3,13 @@
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
 
+#faq-sect-decor {
+  position: absolute;
+  pointer-events: none;
+  bottom: 20px;
+  left: -320px;
+}
+
 .faq-sect {
   padding-top: 55px;
   padding-bottom: 320px;

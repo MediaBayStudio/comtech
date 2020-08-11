@@ -33,12 +33,24 @@
   }
 }
 
+#hero-sect-decor {
+  position: absolute;
+  top: 5%;
+  width: 80%;
+  right: 10%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+
 .hero-sect {
   padding-top: responsive('320->575', '230->370');
   padding-bottom: 120px;
   // background: $lavender url('../img/hero-img.svg') right -26vw top/109vw auto no-repeat;
   background: $lavender url('../img/hero-img.svg') right -120vw top/109vw auto no-repeat;
   transition: background-position .5s;
+  position: relative;
+  overflow: hidden;
   &.loaded {
     opacity: 0;
     animation: slideBg320 1s .55s forwards;
@@ -47,6 +59,8 @@
     max-width: 280px;
     margin-bottom: 30px;
     font: 900 26px/140% NotoSans;
+    position: relative;
+    z-index: 1;
     > .b {
       font-weight: bold;
       color: $kingblue;
@@ -56,9 +70,12 @@
     margin-bottom: 30px;
     max-width: 205px;
     font: 18px/138% NotoSans;
+    position: relative;
+    z-index: 1;
   }
   &__btn {
     position: relative;
+    z-index: 1;
     background: linear-gradient(265.79deg, #FFAF49 4.81%, #FDA32D 93.58%);
     &-text {
       position: relative;

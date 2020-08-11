@@ -3,6 +3,12 @@
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
 
+#faq-sect-decor {
+  width: 540px;
+  bottom: 25px;
+  left: 100px;
+}
+
 .faq-sect {
   padding-bottom: responsive('768->1023', '320->375');
   &__descr {

@@ -3,6 +3,13 @@
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
 
+#services-sect-decor {
+  width: 865px;
+  bottom: 150px;
+  right: 125px;
+  // right: responsive('1440->1920', '75->215');
+}
+
 .services-sect {
   padding-top: 60px;
   padding-bottom: 100px;
