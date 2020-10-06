@@ -8,14 +8,16 @@
   padding-bottom: 15px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
   background: $white;
   position: relative;
   z-index: 2;
   &__logo {
+    margin: 0 auto 0 0;
     cursor: pointer;
   }
-  &__nav {
+  &__nav,
+  &__tel {
     display: none;
   }
   &.fixed {
